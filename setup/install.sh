@@ -16,6 +16,15 @@ RUNTIME_DEPENDENCIES="libc6 \
         zlib1g "
 BUILD_DEPENDENCIES="xz-utils "
 
+cp /etc/apt/sources.list /etc/apt/sources.list.bak
+cat > /etc/apt/sources.list << EOF
+deb http://mirrors.aliyun.com/debian/ jessie main non-free contrib
+deb http://mirrors.aliyun.com/debian/ jessie-proposed-updates main non-free contrib
+deb-src http://mirrors.aliyun.com/debian/ jessie main non-free contrib
+deb-src http://mirrors.aliyun.com/debian/ jessie-proposed-updates main non-free contrib
+
+EOF
+
 apt-get update 
 apt-get install --no-install-recommends --no-install-suggests -y ${RUNTIME_DEPENDENCIES} ${BUILD_DEPENDENCIES}
 
@@ -70,6 +79,8 @@ mkdir -p /usr/local/lib/node_external_module
 npm install $(cat ${DOTNET_SETUP_DIR}/npm.txt) --loglevel warn -g ${NPM_REGISTRY}
 
 # cleanup
+cp /etc/apt/sources.list.bak /etc/apt/sources.list
+rm /etc/apt/sources.list.bak
 apt-get purge -y --auto-remove ${BUILD_DEPENDENCIES}
 rm -rf /var/lib/apt/lists/*
 rm -rf ${DOTNET_SETUP_DIR}/
