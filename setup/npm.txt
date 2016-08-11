@@ -1,1 +1,1 @@
-bower glup
+bower glup webpack

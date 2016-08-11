@@ -76,6 +76,7 @@ tar -xJf "node-v$NODE_VERSION-linux-x64.tar.xz" -C /usr/local --strip=1
 mkdir -p /usr/local/lib/node_external_module
 
 #安装必要包
+npm install npm --loglevel warn -g ${NPM_REGISTRY}
 npm install $(cat ${DOTNET_SETUP_DIR}/npm.txt) --loglevel warn -g ${NPM_REGISTRY}
 
 # cleanup
