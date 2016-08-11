@@ -6,4 +6,4 @@ services:
     volumes:
       - /srv/dotnet_build:/var/dotnet_home
       - /srv/dotnet_build/packages:/root/.nuget/packages
-      - /srv/dotnet_build/node_modules:/usr/local/lib/node_modules
+      - /srv/dotnet_build/node_modules:/usr/local/lib/node_external_module
