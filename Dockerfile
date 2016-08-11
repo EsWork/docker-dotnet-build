@@ -1,4 +1,3 @@
-#FROM microsoft/dotnet:1.0.0-preview2-sdk
 FROM johnwu/debian:jessie
 MAINTAINER JohnWu "v.la@live.cn"
 
