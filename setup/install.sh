@@ -17,17 +17,17 @@ RUNTIME_DEPENDENCIES="libc6 \
 BUILD_DEPENDENCIES="xz-utils "
 
 ${BUILD_CHINA} && {
-  cp /etc/apt/sources.list /etc/apt/sources.list.bak
-  cat > /etc/apt/sources.list << EOF
+cp /etc/apt/sources.list /etc/apt/sources.list.bak
+cat > /etc/apt/sources.list <<EOF
   deb http://mirrors.aliyun.com/debian/ jessie main non-free contrib
   deb http://mirrors.aliyun.com/debian/ jessie-proposed-updates main non-free contrib
   deb-src http://mirrors.aliyun.com/debian/ jessie main non-free contrib
   deb-src http://mirrors.aliyun.com/debian/ jessie-proposed-updates main non-free contrib
 
-  EOF
+EOF
 
-  cp /etc/apt/sources.list.bak /etc/apt/sources.list
-  rm /etc/apt/sources.list.bak
+cp /etc/apt/sources.list.bak /etc/apt/sources.list
+rm /etc/apt/sources.list.bak
 }
 
 apt-get update 
