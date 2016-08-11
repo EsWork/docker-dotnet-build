@@ -8,7 +8,7 @@ ENV DOTNET_SDK_VERSION=1.0.0-preview2 \
     NODE_PATH="/user/local/lib/node_modules;/usr/local/lib/node_external_module" \
     DOTNET_SETUP_DIR=/usr/src/dotnet-build
     
-ARG NPM_REGISTRY="--registry=https://registry.npm.taobao.org"
+ARG BUILD_CHINA=false
 
 COPY setup/ ${DOTNET_SETUP_DIR}/
 
