@@ -65,10 +65,9 @@ grep "node-v$NODE_VERSION-linux-x64.tar.xz\$" "SHASUMS256.txt" | sha256sum -c -
 tar -xJf "node-v$NODE_VERSION-linux-x64.tar.xz" -C /usr/local --strip=1
 
 mkdir -p /usr/local/lib/node_external_module
-export NODE_PATH="/user/local/lib/node_modules;/usr/local/lib/node_external_module"
 
 #安装必要包
-npm install $(cat ${DOTNET_SETUP_DIR}/npm.txt) -g ${NPM_REGISTRY}
+npm install $(cat ${DOTNET_SETUP_DIR}/npm.txt) --loglevel warn -g ${NPM_REGISTRY}
 
 # cleanup
 apt-get purge -y --auto-remove ${BUILD_DEPENDENCIES}

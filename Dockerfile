@@ -5,8 +5,9 @@ ENV DOTNET_SDK_VERSION=1.0.0-preview2 \
     NUGET_XMLDOC_MODE=skip \  
     NODE_VERSION=4.4.7 \
     NPM_CONFIG_LOGLEVEL=info \
+    NODE_PATH="/user/local/lib/node_modules;/usr/local/lib/node_external_module" \
     DOTNET_SETUP_DIR=/usr/src/dotnet-build
-
+    
 ARG NPM_REGISTRY="--registry=https://registry.npm.taobao.org"
 
 COPY setup/ ${DOTNET_SETUP_DIR}/

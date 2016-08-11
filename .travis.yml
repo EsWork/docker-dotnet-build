@@ -1,0 +1,12 @@
+language: bash
+services: docker
+
+branches: 
+  only: 
+    - master
+
+install:
+  - docker build -t johnwu/dotnet-build:1.0.0-preview2 .
+  
+script: 
+  - docker run -it johnwu/dotnet-build:1.0.0-preview2 dotnet new
