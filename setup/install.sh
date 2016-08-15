@@ -25,13 +25,15 @@ cat > /etc/apt/sources.list <<EOF
   deb-src http://mirrors.aliyun.com/debian/ jessie-proposed-updates main non-free contrib
 
 EOF
-
-cp /etc/apt/sources.list.bak /etc/apt/sources.list
-rm /etc/apt/sources.list.bak
 }
 
 apt-get update 
 apt-get install --no-install-recommends --no-install-suggests -y ${RUNTIME_DEPENDENCIES} ${BUILD_DEPENDENCIES}
+
+${BUILD_CHINA} && {
+cp /etc/apt/sources.list.bak /etc/apt/sources.list
+rm /etc/apt/sources.list.bak
+}
 
 ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
 #                           
