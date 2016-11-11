@@ -1,7 +1,7 @@
 FROM johnwu/debian:jessie
 MAINTAINER JohnWu "v.la@live.cn"
 
-ENV DOTNET_SDK_VERSION=1.0.0-preview2 \
+ENV DOTNET_SDK_VERSION=1.0.0-preview2.1 \
     NUGET_XMLDOC_MODE=skip \  
     NODE_VERSION=4.4.7 \
     NPM_CONFIG_LOGLEVEL=info \

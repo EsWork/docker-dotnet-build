@@ -2,7 +2,7 @@ version: '2'
 services: 
   dotnet-build:
     build: .
-    image: johnwu/dotnet-build:1.0.0-preview2
+    image: johnwu/dotnet-build:1.0.0-preview2.1
     volumes:
       - /srv/dotnet_build:/var/dotnet_home
       - /srv/dotnet_build/packages:/root/.nuget/packages
