@@ -6,7 +6,7 @@ branches:
     - master
 
 install:
-  - docker build -t johnwu/dotnet-build:1.0.0-preview2.1 .
+  - docker build -t johnwu/dotnet-build:1.0.0-preview2-1-003177 .
   
 script: 
-  - docker run -it johnwu/dotnet-build:1.0.0-preview2.1 dotnet new
+  - docker run -it johnwu/dotnet-build:1.0.0-preview2-1-003177 dotnet new

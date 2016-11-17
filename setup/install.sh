@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-DOTNET_SDK_DOWNLOAD_URL="https://download.microsoft.com/download/8/C/9/8C9182C7-9DCD-40C1-B72A-BEC4C3FC1FC1/dotnet-dev-debian-x64.1.0.0-preview2.1-003155.tar.gz"
+DOTNET_SDK_DOWNLOAD_URL=" https://dotnetcli.blob.core.windows.net/dotnet/preview/Binaries/$DOTNET_SDK_VERSION/dotnet-dev-debian-x64.$DOTNET_SDK_VERSION.tar.gz"
 
 RUNTIME_DEPENDENCIES="libc6 \
         libcurl3 \

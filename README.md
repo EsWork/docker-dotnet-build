@@ -3,5 +3,5 @@
 
 # Introduction
 
-.NET Core 1.1 Preview 1 and .NET Core SDK 1.0 Preview 2.1
+.NET Core 1.1.0 and .NET Core SDK 1.0.0-preview3-004056
 
