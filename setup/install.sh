@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-DOTNET_SDK_DOWNLOAD_URL=" https://dotnetcli.blob.core.windows.net/dotnet/preview/Binaries/$DOTNET_SDK_VERSION/dotnet-dev-debian-x64.$DOTNET_SDK_VERSION.tar.gz"
+DOTNET_SDK_DOWNLOAD_URL="https://dotnetcli.blob.core.windows.net/dotnet/Sdk/$DOTNET_SDK_VERSION/dotnet-dev-debian-x64.$DOTNET_SDK_VERSION.tar.gz"
 
 RUNTIME_DEPENDENCIES="libc6 \
         libcurl3 \
@@ -35,22 +35,28 @@ cp /etc/apt/sources.list.bak /etc/apt/sources.list
 rm /etc/apt/sources.list.bak
 }
 
+cd "${DOTNET_SETUP_DIR}/"
+
 ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
 #                           
 #               Install .Net Core SDK   
 #
-#  ${DOTNET_SETUP_DIR}/project.json文件主要用来下载类库到本地
 #  预先下载相应的依赖类库,可以加快每次编译需要的下载时间  
-#  PS：还可以挂载到宿主机类库到/root/.nuget/package目录下
+#  PS：还可以挂载到宿主机类库到指定目录下执行dotnet restore --packages <PACKAGES_DIRECTORY>
 #                          
 ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
 wget -cq ${DOTNET_SDK_DOWNLOAD_URL} -O "${DOTNET_SETUP_DIR}/dotnet.tar.gz"
 mkdir -p /usr/share/dotnet
 tar -zxf "${DOTNET_SETUP_DIR}/dotnet.tar.gz" -C /usr/share/dotnet
 ln -sf /usr/share/dotnet/dotnet /usr/bin/dotnet
+
 #缓存基础依赖类库到本地
 dotnet restore ${DOTNET_SETUP_DIR}
+mkdir "${DOTNET_SETUP_DIR}/warmup" 
+dotnet new mvc -o ${DOTNET_SETUP_DIR}/warmup
 rm -rf /tmp/NuGetScratch
+
+
 
 ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
 #                           
@@ -73,7 +79,6 @@ for key in \
     gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$key"; \
   done
 
-cd ${DOTNET_SETUP_DIR}/
 wget -cq "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.xz" -P ${DOTNET_SETUP_DIR}/
 wget -cq "https://nodejs.org/dist/v$NODE_VERSION/SHASUMS256.txt.asc" -P ${DOTNET_SETUP_DIR}/
 gpg --batch --decrypt --output "SHASUMS256.txt" "SHASUMS256.txt.asc"
