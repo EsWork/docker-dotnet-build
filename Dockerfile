@@ -1,5 +1,5 @@
 FROM buildpack-deps:jessie-curl
-MAINTAINER JohnWu "v.la@live.cn"
+LABEL maintainer "v.la@live.cn"
 
 ENV DOTNET_SDK_VERSION=1.0.1 \
     NUGET_XMLDOC_MODE=skip \  
