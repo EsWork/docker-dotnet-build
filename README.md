@@ -3,9 +3,9 @@
 Introduction
 ---
 
-.NET Core 构建镜像
-- .NET Core SDK 1.0.1
-- Nodejs 6.10.1
+镜像的构建环境
+- .NET Core SDK
+- Nodejs
 - bower
 - glup
 - webpack
