@@ -13,7 +13,8 @@ RUNTIME_DEPENDENCIES="libc6 \
         libstdc++6 \
         libunwind8 \
         libuuid1 \
-        zlib1g "
+        zlib1g \
+        python"
 BUILD_DEPENDENCIES="xz-utils "
 
 ${BUILD_CHINA} && {
