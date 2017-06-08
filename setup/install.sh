@@ -97,9 +97,6 @@ echo "install npm.."
 
 npm install npm --loglevel warn -g ${NPM_REGISTRY}
 
-echo "install npm package.."
-npm install $(cat ${DOTNET_SETUP_DIR}/npm.txt) --loglevel warn -g ${NPM_REGISTRY}
-
 gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "6A010C5166006599AA17F08146C2130DFD2497F5" 
 
 curl -fSLO --compressed "https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz" 
@@ -110,6 +107,9 @@ tar -xzf yarn-v$YARN_VERSION.tar.gz -C /opt/yarn --strip-components=1
 ln -s /opt/yarn/bin/yarn /usr/local/bin/yarn 
 ln -s /opt/yarn/bin/yarn /usr/local/bin/yarnpkg 
 rm yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz
+
+echo "install npm package.."
+yarn install $(cat ${DOTNET_SETUP_DIR}/npm.txt) --loglevel warn -g ${NPM_REGISTRY}
 
 # cleanup
 apt-get purge -y --auto-remove ${BUILD_DEPENDENCIES}
