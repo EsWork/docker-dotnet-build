@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/EsWork/docker-dotnet-build.svg?branch=master)](https://travis-ci.org/EsWork/docker-dotnet-build)
+[![](https://images.microbadger.com/badges/image/eswork/dotnet-build.svg)](https://microbadger.com/images/eswork/dotnet-build "Get your own image badge on microbadger.com")
 
 Introduction
 ---
