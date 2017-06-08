@@ -45,6 +45,7 @@ cd "${DOTNET_SETUP_DIR}/"
 #  PS：还可以挂载到宿主机类库到指定目录下执行dotnet restore --packages <PACKAGES_DIRECTORY>
 #                          
 ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
+echo " Install .Net Core SDK  "
 wget -cq ${DOTNET_SDK_DOWNLOAD_URL} -O "${DOTNET_SETUP_DIR}/dotnet.tar.gz"
 mkdir -p /usr/share/dotnet
 tar -zxf "${DOTNET_SETUP_DIR}/dotnet.tar.gz" -C /usr/share/dotnet
@@ -66,6 +67,7 @@ rm -rf /tmp/NuGetScratch
 #  2.外部挂载地址存放在/usr/local/lib/node_external_module
 #                       
 ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
+echo " Install Front Building Support  "
 for key in \
     9554F04D7259F04124DE6B476D5A82AC7E37093B \
     94AE36675C464D64BAFA68DD7434390BDBE9B9C5 \
@@ -91,7 +93,12 @@ mkdir -p /usr/local/lib/node_external_module
 ${BUILD_CHINA} && {
   NPM_REGISTRY="--registry=https://registry.npm.taobao.org"
 }
+
+echo "install npm.."
+
 npm install npm --loglevel warn -g ${NPM_REGISTRY}
+
+echo "install npm package.."
 npm install $(cat ${DOTNET_SETUP_DIR}/npm.txt) --loglevel warn -g ${NPM_REGISTRY}
 
 # cleanup
