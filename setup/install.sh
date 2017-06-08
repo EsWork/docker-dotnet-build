@@ -109,7 +109,7 @@ ln -s /opt/yarn/bin/yarn /usr/local/bin/yarnpkg
 rm yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz
 
 echo "install npm package.."
-yarn install $(cat ${DOTNET_SETUP_DIR}/npm.txt) --loglevel warn -g ${NPM_REGISTRY}
+yarn global add $(cat ${DOTNET_SETUP_DIR}/npm.txt) --loglevel warn -g ${NPM_REGISTRY}
 
 # cleanup
 apt-get purge -y --auto-remove ${BUILD_DEPENDENCIES}
