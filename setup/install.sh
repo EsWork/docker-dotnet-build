@@ -64,7 +64,7 @@ rm -rf /tmp/NuGetScratch
 #                           
 #            Install Front Building Support
 # 
-#  1.初始安装的包将会存放在/user/local/lib/node_modules
+#  1.初始安装的包将会存放在/usr/local/lib/node_modules
 #  2.外部挂载地址存放在/usr/local/lib/node_external_module
 #                       
 ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
@@ -95,21 +95,13 @@ ${BUILD_CHINA} && {
 
 echo "install npm.."
 
+#fix permission denied
+sudo chown -R $(whoami):root $(npm config get prefix)/{lib/node_modules,bin,share}
+
 npm install npm --loglevel warn -g ${NPM_REGISTRY}
 
-gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "6A010C5166006599AA17F08146C2130DFD2497F5" 
-
-curl -fSLO --compressed "https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz" 
-curl -fSLO --compressed "https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz.asc" 
-gpg --batch --verify yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz 
-mkdir -p /opt/yarn 
-tar -xzf yarn-v$YARN_VERSION.tar.gz -C /opt/yarn --strip-components=1 
-ln -s /opt/yarn/bin/yarn /usr/local/bin/yarn 
-ln -s /opt/yarn/bin/yarn /usr/local/bin/yarnpkg 
-rm yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz
-
 echo "install npm package.."
-yarn global add $(cat ${DOTNET_SETUP_DIR}/npm.txt) --loglevel warn -g ${NPM_REGISTRY}
+npm install $(cat ${DOTNET_SETUP_DIR}/npm.txt) --loglevel warn -g ${NPM_REGISTRY}
 
 # cleanup
 apt-get purge -y --auto-remove ${BUILD_DEPENDENCIES}
