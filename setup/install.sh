@@ -68,10 +68,11 @@ rm -rf /tmp/NuGetScratch
 #  2.外部挂载地址存放在/usr/local/lib/node_external_module
 #                       
 ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
+echo " Install .Net Core SDK  "
+
 # gpg keys listed at https://github.com/nodejs/node#release-team
 RUN set -ex \
   && for key in \
-    9554F04D7259F04124DE6B476D5A82AC7E37093B \
     94AE36675C464D64BAFA68DD7434390BDBE9B9C5 \
     FD3A5288F042B6850C66B31F09FE44734EB7990E \
     71DCFD284A79C3B38668286BC97EC7A07EDE3FC1 \
