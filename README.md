@@ -7,6 +7,7 @@ Introduction
 镜像的构建环境
 - .NET Core SDK
 - Nodejs
+- Yarn
 - bower
 - glup
 - webpack
