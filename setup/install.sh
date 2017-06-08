@@ -96,7 +96,7 @@ ${BUILD_CHINA} && {
 echo "install npm.."
 
 #fix permission denied
-sudo chown -R $(whoami):root $(npm config get prefix)/{lib/node_modules,bin,share}
+chown -R $(whoami):root $(npm config get prefix)/{lib/node_modules,bin,share}
 
 npm install npm --loglevel warn -g ${NPM_REGISTRY}
 
