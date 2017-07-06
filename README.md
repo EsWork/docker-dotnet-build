@@ -1,10 +1,19 @@
-[![Build Status](https://travis-ci.org/EsWork/docker-dotnet-build.svg?branch=master)](https://travis-ci.org/EsWork/docker-dotnet-build)
-[![](https://images.microbadger.com/badges/image/eswork/dotnet-build.svg)](https://microbadger.com/images/eswork/dotnet-build "Get your own image badge on microbadger.com")
+[![Build Status](https://travis-ci.org/EsWork/docker-dotnet-build.svg?branch=master)](https://travis-ci.org/EsWork/docker-dotnet-build)  
+
+[![](https://images.microbadger.com/badges/version/eswork/dotnet-build.svg)](https://microbadger.com/images/eswork/dotnet-build "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/image/eswork/dotnet-build.svg)](https://microbadger.com/images/eswork/dotnet-build "Get your own image badge on microbadger.com")  
+[![](https://images.microbadger.com/badges/version/eswork/dotnet-build:1.1.1.svg)](https://microbadger.com/images/eswork/dotnet-build:1.1.1 "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/image/eswork/dotnet-build:1.1.1.svg)](https://microbadger.com/images/eswork/dotnet-build:1.1.1 "Get your own image badge on microbadger.com")  
+[![](https://images.microbadger.com/badges/version/eswork/dotnet-build:1.1.2.svg)](https://microbadger.com/images/eswork/dotnet-build:1.1.2 "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/image/eswork/dotnet-build:1.1.2.svg)](https://microbadger.com/images/eswork/dotnet-build:1.1.2 "Get your own image badge on microbadger.com")
+
+
+Supported tags and respective `Dockerfile` links
+---
+
+- [`latest` , `1.1.2`  (1.1.2/Dockerfile)](https://github.com/EsWork/docker-dotnet-build/blob/master/Dockerfile)
 
 Introduction
 ---
 
-镜像的构建环境
+基于`docker image`编译.NET应用程序
 - .NET Core SDK
 - Nodejs
 - Yarn
