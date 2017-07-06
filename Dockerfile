@@ -1,7 +1,7 @@
 FROM buildpack-deps:jessie-curl
 LABEL maintainer "v.la@live.cn"
 
-ENV DOTNET_SDK_VERSION=1.0.1 \
+ENV DOTNET_SDK_VERSION=1.0.4 \
     NUGET_XMLDOC_MODE=skip \  
     NODE_VERSION=8.0.0 \
     NPM_CONFIG_LOGLEVEL=info \

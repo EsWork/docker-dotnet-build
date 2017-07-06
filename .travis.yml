@@ -6,7 +6,7 @@ branches:
     - master
 
 install:
-  - docker build -t eswork/dotnet-build:1.0.1 .
+  - docker build -t eswork/dotnet-build:1.1.2 .
   
 script: 
-  - docker run -it eswork/dotnet-build:1.0.1 dotnet new
+  - docker run -it eswork/dotnet-build:1.1.2 dotnet new
