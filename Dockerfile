@@ -66,7 +66,7 @@ RUN echo " Install .Net Core SDK  " \
 ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
 RUN echo "  Install Front Building Support " \
 && NPM_DEFAULT_PACKAGE="gulp-cli grunt-cli bower markdown-styles yarn gulp" \
-
+&& cd "${DOTNET_SETUP_DIR}/" \
 # gpg keys listed at https://github.com/nodejs/node#release-team
 && gpg --keyserver pool.sks-keyservers.net --recv-keys 94AE36675C464D64BAFA68DD7434390BDBE9B9C5 \
 && gpg --keyserver pool.sks-keyservers.net --recv-keys FD3A5288F042B6850C66B31F09FE44734EB7990E \
