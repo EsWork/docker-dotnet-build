@@ -9,8 +9,6 @@ ENV DOTNET_SDK_VERSION=1.1.0 \
     DOTNET_SETUP_DIR=/usr/src/dotnet-build \
     BUILD_CHINA=false
     
-ARG NPM_DEFAULT_PACKAGE=gulp-cli grunt-cli bower markdown-styles yarn gulp
-
 COPY setup/ ${DOTNET_SETUP_DIR}/
 
 RUN chmod +x ${DOTNET_SETUP_DIR}/china.sh && ${DOTNET_SETUP_DIR}/china.sh
@@ -29,8 +27,7 @@ RUN RUNTIME_DEPENDENCIES="libc6 \
         python" \
 && BUILD_DEPENDENCIES="xz-utils " \
 && apt-get update \
-&& apt-get install --no-install-recommends --no-install-suggests -y ${RUNTIME_DEPENDENCIES} ${BUILD_DEPENDENCIES} \
-&& cd "${DOTNET_SETUP_DIR}/" \
+&& apt-get install --no-install-recommends --no-install-suggests -y ${RUNTIME_DEPENDENCIES} ${BUILD_DEPENDENCIES}
 
 ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
 #                           
@@ -40,10 +37,11 @@ RUN RUNTIME_DEPENDENCIES="libc6 \
 #  PS：还可以挂载到宿主机类库到指定目录下执行dotnet restore --packages <PACKAGES_DIRECTORY>
 #                          
 ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
+RUN echo " Install .Net Core SDK  " \
 
-&& echo " Install .Net Core SDK  " \
+&& cd "${DOTNET_SETUP_DIR}/" \
 && DOTNET_SDK_DOWNLOAD_URL="https://dotnetcli.blob.core.windows.net/dotnet/Sdk/$DOTNET_SDK_VERSION/dotnet-dev-debian-x64.$DOTNET_SDK_VERSION.tar.gz" \
-&& wget -cq ${DOTNET_SDK_DOWNLOAD_URL} -O "${DOTNET_SETUP_DIR}/dotnet.tar.gz" 
+&& wget -cq ${DOTNET_SDK_DOWNLOAD_URL} -O "${DOTNET_SETUP_DIR}/dotnet.tar.gz" \
 && mkdir -p /usr/share/dotnet \
 && tar -zxf "${DOTNET_SETUP_DIR}/dotnet.tar.gz" -C /usr/share/dotnet \
 && ln -sf /usr/share/dotnet/dotnet /usr/bin/dotnet \
@@ -63,6 +61,7 @@ RUN RUNTIME_DEPENDENCIES="libc6 \
 #                       
 ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
 RUN echo "  Install Front Building Support " \
+&& NPM_DEFAULT_PACKAGE="gulp-cli grunt-cli bower markdown-styles yarn gulp" \
 
 # gpg keys listed at https://github.com/nodejs/node#release-team
 && gpg --keyserver pool.sks-keyservers.net --recv-keys 94AE36675C464D64BAFA68DD7434390BDBE9B9C5 \
