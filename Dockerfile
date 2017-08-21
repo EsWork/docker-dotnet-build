@@ -44,7 +44,7 @@ RUN RUNTIME_DEPENDENCIES="libc6 \
 && echo " Install .Net Core SDK  " \
 && wget -cq ${DOTNET_SDK_DOWNLOAD_URL} -O "${DOTNET_SETUP_DIR}/dotnet.tar.gz" 
 && mkdir -p /usr/share/dotnet \
-&&  tar -zxf "${DOTNET_SETUP_DIR}/dotnet.tar.gz" -C /usr/share/dotnet \
+&& tar -zxf "${DOTNET_SETUP_DIR}/dotnet.tar.gz" -C /usr/share/dotnet \
 && ln -sf /usr/share/dotnet/dotnet /usr/bin/dotnet \
 
 #缓存基础依赖类库到本地
@@ -84,12 +84,12 @@ RUN echo "  Install Front Building Support " \
 && echo " install npm. " \
 #fix permission denied
 && chown -R $(whoami):root $(npm config get prefix)/{lib/node_modules,bin,share} \
-&&  npm install npm --loglevel warn -g ${NPM_REGISTRY} \
+&& npm install npm --loglevel warn -g ${NPM_REGISTRY} \
 
 && echo "install npm package.." \
 && npm install $NPM_DEFAULT_PACKAGE --loglevel warn -g ${NPM_REGISTRY} \
 
 # cleanup
 && apt-get purge -y --auto-remove ${BUILD_DEPENDENCIES} \
-&&rm -rf /var/lib/apt/lists/* \
+&& rm -rf /var/lib/apt/lists/* \
 && cd / && rm -rf ${DOTNET_SETUP_DIR}/
