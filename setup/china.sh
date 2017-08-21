@@ -1,3 +1,6 @@
+#!/usr/bin/env sh
+set -e
+
 ${BUILD_CHINA} && {
 cp /etc/apt/sources.list /etc/apt/sources.list.bak
 cat > /etc/apt/sources.list <<EOF
