@@ -9,15 +9,7 @@ ENV DOTNET_SDK_VERSION=1.1.0 \
     DOTNET_SETUP_DIR=/usr/src/dotnet-build 
 
 ARG BUILD_CHINA=false
-
-COPY setup/ ${DOTNET_SETUP_DIR}/
-
-RUN if [ ${BUILD_CHINA} ];then \
-       chmod +x ${DOTNET_SETUP_DIR}/china.sh; \
-       ${DOTNET_SETUP_DIR}/china.sh; \
-    fi
-
-RUN RUNTIME_DEPENDENCIES="libc6 \
+ARG RUNTIME_DEPENDENCIES="libc6 \
         libcurl3 \
         libgcc1 \
         libgssapi-krb5-2 \
@@ -28,9 +20,17 @@ RUN RUNTIME_DEPENDENCIES="libc6 \
         libunwind8 \
         libuuid1 \
         zlib1g \
-        python" \
-&& BUILD_DEPENDENCIES="xz-utils " \
-&& apt-get update \
+        python"
+ARG BUILD_DEPENDENCIES="xz-utils "
+
+COPY setup/ ${DOTNET_SETUP_DIR}/
+
+RUN if [ ${BUILD_CHINA} ];then \
+       chmod +x ${DOTNET_SETUP_DIR}/china.sh; \
+       ${DOTNET_SETUP_DIR}/china.sh; \
+    fi
+
+RUN apt-get update \
 && apt-get install --no-install-recommends --no-install-suggests -y ${RUNTIME_DEPENDENCIES} ${BUILD_DEPENDENCIES}
 
 ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
@@ -87,7 +87,7 @@ RUN echo "  Install Front Building Support " \
 
 && echo " install npm. " \
 #fix permission denied
-&& chown -R $(whoami):root $(npm config get prefix)/{lib/node_modules,bin,share} \
+#&& chown -R $(whoami):root $(npm config get prefix)/{lib/node_modules,bin,share} \
 && npm install npm --loglevel warn -g ${NPM_REGISTRY} \
 
 && echo "install npm package.." \
