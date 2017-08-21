@@ -1,7 +1,7 @@
 FROM buildpack-deps:jessie-curl
 LABEL maintainer "v.la@live.cn"
 
-ENV DOTNET_SDK_VERSION=1.0.4 \
+ENV DOTNET_SDK_VERSION=1.1.0 \
     NUGET_XMLDOC_MODE=skip \  
     NODE_VERSION=8.4.0 \
     NPM_CONFIG_LOGLEVEL=info \
@@ -42,6 +42,7 @@ RUN RUNTIME_DEPENDENCIES="libc6 \
 ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
 
 && echo " Install .Net Core SDK  " \
+&& DOTNET_SDK_DOWNLOAD_URL="https://dotnetcli.blob.core.windows.net/dotnet/Sdk/$DOTNET_SDK_VERSION/dotnet-dev-debian-x64.$DOTNET_SDK_VERSION.tar.gz" \
 && wget -cq ${DOTNET_SDK_DOWNLOAD_URL} -O "${DOTNET_SETUP_DIR}/dotnet.tar.gz" 
 && mkdir -p /usr/share/dotnet \
 && tar -zxf "${DOTNET_SETUP_DIR}/dotnet.tar.gz" -C /usr/share/dotnet \
