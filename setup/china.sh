@@ -1,7 +1,6 @@
 #!/usr/bin/env sh
 set -e
 
-${BUILD_CHINA} && {
 cp /etc/apt/sources.list /etc/apt/sources.list.bak
 cat > /etc/apt/sources.list <<EOF
   deb http://mirrors.aliyun.com/debian/ jessie main non-free contrib
@@ -11,6 +10,5 @@ cat > /etc/apt/sources.list <<EOF
 EOF
 
 export NPM_REGISTRY="--registry=https://registry.npm.taobao.org"
-}
 
 exit 0

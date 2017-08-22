@@ -2,7 +2,7 @@ version: '2'
 services: 
   dotnet-build:
     build: .
-    image: eswork/dotnet-build:1.0.1
+    image: eswork/dotnet-build:2.0.0
     volumes:
       - /srv/dotnet_build:/var/dotnet_home
       - /srv/dotnet_build/packages:/root/.nuget/packages
