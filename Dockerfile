@@ -89,23 +89,7 @@ RUN echo "  Install Front Building Support " \
 #&& chown -R $(whoami):root $(npm config get prefix)/{lib/node_modules,bin,share} \
 && npm install npm --loglevel warn -g ${NPM_REGISTRY} \
 && echo "install npm package.." \
-&& npm install $NPM_DEFAULT_PACKAGE --loglevel warn -g ${NPM_REGISTRY} \
-
-&& echo " install yarn. " && cd "${DOTNET_SETUP_DIR}/" \
-  && for key in \
-    6A010C5166006599AA17F08146C2130DFD2497F5 \
-  ; do \
-    gpg --keyserver pgp.mit.edu --recv-keys "$key" || \
-    gpg --keyserver keyserver.pgp.com --recv-keys "$key" || \
-    gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$key" ; \
-  done \
-  && curl -fSLO --compressed "https://github.com/yarnpkg/yarn/releases/download/v$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz" \
-  && curl -fSLO --compressed "https://github.com/yarnpkg/yarn/releases/download/v$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz.asc" \
-  && gpg --batch --verify yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz \
-  && mkdir -p /opt/yarn \
-  && tar -xzf yarn-v$YARN_VERSION.tar.gz -C /opt/yarn --strip-components=1 \
-  && ln -s /opt/yarn/bin/yarn /usr/local/bin/yarn \
-  && ln -s /opt/yarn/bin/yarn /usr/local/bin/yarnpkg \
+&& npm install $NPM_DEFAULT_PACKAGE --loglevel warn -g ${NPM_REGISTRY}
 
 # cleanup
 && apt-get purge -y --auto-remove ${BUILD_DEPENDENCIES} \
