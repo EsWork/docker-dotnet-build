@@ -105,7 +105,7 @@ RUN echo " install yarn. " && cd "${DOTNET_SETUP_DIR}/" \
   && mkdir -p /opt/yarn \
   && tar -xzf yarn-v$YARN_VERSION.tar.gz -C /opt/yarn --strip-components=1 \
   && ln -s /opt/yarn/bin/yarn /usr/local/bin/yarn \
-  && ln -s /opt/yarn/bin/yarn /usr/local/bin/yarnpkg
+  && ln -s /opt/yarn/bin/yarn /usr/local/bin/yarnpkg \
 
 # cleanup
 && apt-get purge -y --auto-remove ${BUILD_DEPENDENCIES} \
