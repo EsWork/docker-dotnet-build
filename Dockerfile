@@ -89,7 +89,7 @@ RUN echo "  Install Front Building Support " \
 #&& chown -R $(whoami):root $(npm config get prefix)/{lib/node_modules,bin,share} \
 && npm install npm --loglevel warn -g ${NPM_REGISTRY} \
 && echo "install npm package.." \
-&& npm install $NPM_DEFAULT_PACKAGE --loglevel warn -g ${NPM_REGISTRY}
+&& npm install $NPM_DEFAULT_PACKAGE --loglevel warn -g ${NPM_REGISTRY} \
 
 # cleanup
 && apt-get purge -y --auto-remove ${BUILD_DEPENDENCIES} \
