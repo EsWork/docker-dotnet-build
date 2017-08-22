@@ -13,4 +13,4 @@ EOF
 export NPM_REGISTRY="--registry=https://registry.npm.taobao.org"
 }
 
-echo "replace mirror"
+exit 0
