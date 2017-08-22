@@ -82,16 +82,16 @@ RUN echo "  Install Front Building Support " \
 && grep "node-v$NODE_VERSION-linux-x64.tar.xz\$" "SHASUMS256.txt" | sha256sum -c - \
 && tar -xJf "node-v$NODE_VERSION-linux-x64.tar.xz" -C /usr/local --strip=1 \
 && ln -s /usr/local/bin/node /usr/local/bin/nodejs \
-&& mkdir -p /usr/local/lib/node_external_module 
+&& mkdir -p /usr/local/lib/node_external_module \
 
-RUN echo " install npm. " \
+&& echo " install npm. " \
 #fix permission denied
 #&& chown -R $(whoami):root $(npm config get prefix)/{lib/node_modules,bin,share} \
 && npm install npm --loglevel warn -g ${NPM_REGISTRY} \
 && echo "install npm package.." \
-&& npm install $NPM_DEFAULT_PACKAGE --loglevel warn -g ${NPM_REGISTRY} 
+&& npm install $NPM_DEFAULT_PACKAGE --loglevel warn -g ${NPM_REGISTRY} \
 
-RUN echo " install yarn. " && cd "${DOTNET_SETUP_DIR}/" \
+&& echo " install yarn. " && cd "${DOTNET_SETUP_DIR}/" \
   && for key in \
     6A010C5166006599AA17F08146C2130DFD2497F5 \
   ; do \
