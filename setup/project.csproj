@@ -9,7 +9,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="System.Text.Encoding.CodePages" Version="4.4.0" />
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="$(ASPNETCORE_PKG_VERSION)" />
   </ItemGroup>
 
 </Project>
