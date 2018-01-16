@@ -5,13 +5,14 @@
 [![](https://images.microbadger.com/badges/version/eswork/dotnet-build:1.1.2.svg)](https://microbadger.com/images/eswork/dotnet-build:1.1.2 "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/image/eswork/dotnet-build:1.1.2.svg)](https://microbadger.com/images/eswork/dotnet-build:1.1.2 "Get your own image badge on microbadger.com")  
 [![](https://images.microbadger.com/badges/version/eswork/dotnet-build:2.0.0.svg)](https://microbadger.com/images/eswork/dotnet-build:2.0.0 "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/image/eswork/dotnet-build:2.0.0.svg)](https://microbadger.com/images/eswork/dotnet-build:2.0.0 "Get your own image badge on microbadger.com")
 [![](https://images.microbadger.com/badges/version/eswork/dotnet-build:2.0.3.svg)](https://microbadger.com/images/eswork/dotnet-build:2.0.3 "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/image/eswork/dotnet-build:2.0.3.svg)](https://microbadger.com/images/eswork/dotnet-build:2.0.3 "Get your own image badge on microbadger.com")  
-[![](https://images.microbadger.com/badges/version/eswork/dotnet-build:2.0.4.svg)](https://microbadger.com/images/eswork/dotnet-build:2.0.4 "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/image/eswork/dotnet-build:2.0.4.svg)](https://microbadger.com/images/eswork/dotnet-build:2.0.4 "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/version/eswork/dotnet-build:2.0.4.svg)](https://microbadger.com/images/eswork/dotnet-build:2.0.4 "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/image/eswork/dotnet-build:2.0.4.svg)](https://microbadger.com/images/eswork/dotnet-build:2.0.4 "Get your own image badge on microbadger.com")  
+[![](https://images.microbadger.com/badges/version/eswork/dotnet-build:2.0.5.svg)](https://microbadger.com/images/eswork/dotnet-build:2.0.5 "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/image/eswork/dotnet-build:2.0.5.svg)](https://microbadger.com/images/eswork/dotnet-build:2.0.5 "Get your own image badge on microbadger.com")
 
 
 Supported tags and respective `Dockerfile` links
 ---
 
-- [`latest` , `2.0.4`  (2.0.4/Dockerfile)](https://github.com/EsWork/docker-dotnet-build/blob/master/Dockerfile)
+- [`latest` , `2.0.5`  (2.0.5/Dockerfile)](https://github.com/EsWork/docker-dotnet-build/blob/master/Dockerfile)
 
 Introduction
 ---

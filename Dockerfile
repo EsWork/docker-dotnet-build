@@ -1,10 +1,10 @@
 FROM buildpack-deps:jessie-curl
 LABEL maintainer "v.la@live.cn"
 
-ENV DOTNET_SDK_VERSION=2.1.3 \
+ENV DOTNET_SDK_VERSION=2.1.4 \
     NUGET_XMLDOC_MODE=skip \
-    NODE_VERSION=8.4.0 \
-    YARN_VERSION=0.27.5 \
+    NODE_VERSION=8.9.4 \
+    YARN_VERSION=1.3.2 \
     NPM_CONFIG_LOGLEVEL=info \
     NODE_PATH="/usr/local/lib/node_modules;/usr/local/lib/node_external_module" \
     DOTNET_SETUP_DIR=/usr/src/dotnet-build
@@ -43,7 +43,7 @@ RUN echo " Install .Net Core SDK  " \
 
 && cd "${DOTNET_SETUP_DIR}/" \
 && DOTNET_SDK_DOWNLOAD_URL="https://dotnetcli.blob.core.windows.net/dotnet/Sdk/$DOTNET_SDK_VERSION/dotnet-sdk-$DOTNET_SDK_VERSION-linux-x64.tar.gz" \
-&& DOTNET_SDK_DOWNLOAD_SHA="509b88895fd5a6a90e245141eb52f188aa9ee7d20188c213892483c142900d6975013aef9ca6d8da986cc5617a2c3571e22318297c51578b871c047602757600" \
+&& DOTNET_SDK_DOWNLOAD_SHA="05FE90457A8B77AD5A5EB2F22348F53E962012A55077AC4AD144B279F6CAD69740E57F165820BFD6104E88B30E93684BDE3E858F781541D4F110F28CD52CE2B7" \
 && wget -cq ${DOTNET_SDK_DOWNLOAD_URL} -O "${DOTNET_SETUP_DIR}/dotnet.tar.gz" \
 && echo "$DOTNET_SDK_DOWNLOAD_SHA ${DOTNET_SETUP_DIR}/dotnet.tar.gz" | sha512sum -c - \
 && mkdir -p /usr/share/dotnet \
@@ -75,6 +75,7 @@ RUN echo "  Install Front Building Support " \
 && gpg --keyserver pool.sks-keyservers.net --recv-keys C4F0DFFF4E8C1A8236409D08E73BC641CC11F4C8 \ 
 && gpg --keyserver pool.sks-keyservers.net --recv-keys B9AE9905FFD7803F25714661B63B535A4C206CA9 \
 && gpg --keyserver pool.sks-keyservers.net --recv-keys 56730D5401028683275BD23C23EFEFE93C4CFFFE \
+&& gpg --keyserver pool.sks-keyservers.net --recv-keys 77984A986EBC2AA786BC0F66B01FBB92821C587A \
 
 && wget -cq "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.xz" -P ${DOTNET_SETUP_DIR}/ \
 && wget -cq "https://nodejs.org/dist/v$NODE_VERSION/SHASUMS256.txt.asc" -P ${DOTNET_SETUP_DIR}/ \
