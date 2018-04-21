@@ -1,21 +1,20 @@
-FROM buildpack-deps:jessie-curl
+FROM buildpack-deps:stretch-scm
 LABEL maintainer "v.la@live.cn"
 
-ENV DOTNET_SDK_VERSION=2.1.4 \
+ENV DOTNET_SDK_VERSION=2.1.105 \
     NUGET_XMLDOC_MODE=skip \
-    NODE_VERSION=8.9.4 \
-    YARN_VERSION=1.3.2 \
+    NODE_VERSION=8.11.1 \
     NPM_CONFIG_LOGLEVEL=info \
     NODE_PATH="/usr/local/lib/node_modules;/usr/local/lib/node_external_module" \
     DOTNET_SETUP_DIR=/usr/src/dotnet-build
 
-ARG RUNTIME_DEPENDENCIES="libc6 \
+ARG RUNTIME_DEPENDENCIES=" libc6 \
         libcurl3 \
         libgcc1 \
         libgssapi-krb5-2 \
-        libicu52 \
+        libicu57 \
         liblttng-ust0 \
-        libssl1.0.0 \
+        libssl1.0.2 \
         libstdc++6 \
         libunwind8 \
         libuuid1 \
@@ -43,7 +42,7 @@ RUN echo " Install .Net Core SDK  " \
 
 && cd "${DOTNET_SETUP_DIR}/" \
 && DOTNET_SDK_DOWNLOAD_URL="https://dotnetcli.blob.core.windows.net/dotnet/Sdk/$DOTNET_SDK_VERSION/dotnet-sdk-$DOTNET_SDK_VERSION-linux-x64.tar.gz" \
-&& DOTNET_SDK_DOWNLOAD_SHA="05FE90457A8B77AD5A5EB2F22348F53E962012A55077AC4AD144B279F6CAD69740E57F165820BFD6104E88B30E93684BDE3E858F781541D4F110F28CD52CE2B7" \
+&& DOTNET_SDK_DOWNLOAD_SHA="b5e71dee8720595b0eff7518cca49854ed183e7ca68b98e2ca0580be3f6893f25a1bb267367601f575529a0fd8c94bb379a1411564ed5beaa340a54f37a5e16a" \
 && wget -cq ${DOTNET_SDK_DOWNLOAD_URL} -O "${DOTNET_SETUP_DIR}/dotnet.tar.gz" \
 && echo "$DOTNET_SDK_DOWNLOAD_SHA ${DOTNET_SETUP_DIR}/dotnet.tar.gz" | sha512sum -c - \
 && mkdir -p /usr/share/dotnet \
