@@ -1,13 +1,13 @@
 [![Build Status](https://travis-ci.org/EsWork/docker-dotnet-build.svg?branch=master)](https://travis-ci.org/EsWork/docker-dotnet-build)  
 
 [![](https://images.microbadger.com/badges/version/eswork/dotnet-build.svg)](https://microbadger.com/images/eswork/dotnet-build "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/image/eswork/dotnet-build.svg)](https://microbadger.com/images/eswork/dotnet-build "Get your own image badge on microbadger.com")  
-[![](https://images.microbadger.com/badges/version/eswork/dotnet-build:2.1.302.svg)](https://microbadger.com/images/eswork/dotnet-build:2.1.302 "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/image/eswork/dotnet-build:2.1.302.svg)](https://microbadger.com/images/eswork/dotnet-build:2.1.302 "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/version/eswork/dotnet-build:2.1.400.svg)](https://microbadger.com/images/eswork/dotnet-build:2.1.400 "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/image/eswork/dotnet-build:2.1.400.svg)](https://microbadger.com/images/eswork/dotnet-build:2.1.400 "Get your own image badge on microbadger.com")
 
 
 Supported tags and respective `Dockerfile` links
 ---
 
-- [`latest` , `2.1.302`  (2.1.302/Dockerfile)](https://github.com/EsWork/docker-dotnet-build/blob/master/Dockerfile)
+- [`latest` , `2.1.400`  (2.1.400/Dockerfile)](https://github.com/EsWork/docker-dotnet-build/blob/master/Dockerfile)
 
 Introduction
 ---
