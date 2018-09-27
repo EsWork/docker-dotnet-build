@@ -1,7 +1,7 @@
 FROM buildpack-deps:stretch-scm
 LABEL maintainer "v.la@live.cn"
 
-ENV DOTNET_SDK_VERSION=2.1.400 \
+ENV DOTNET_SDK_VERSION=2.1.402 \
     NUGET_XMLDOC_MODE=skip \
     NODE_VERSION=8.11.1 \
     NPM_CONFIG_LOGLEVEL=info \
@@ -42,7 +42,7 @@ RUN echo " Install .Net Core SDK  " \
 
 && cd "${DOTNET_SETUP_DIR}/" \
 && DOTNET_SDK_DOWNLOAD_URL="https://dotnetcli.blob.core.windows.net/dotnet/Sdk/$DOTNET_SDK_VERSION/dotnet-sdk-$DOTNET_SDK_VERSION-linux-x64.tar.gz" \
-&& DOTNET_SDK_DOWNLOAD_SHA="9c850fe9d1ac335376fb3ed1f07472d281a9c4ac8ed02cf752ce36c3488d6746c09d6e2101184f3c8de357aae86b567196f4d071b6c55505a250ce6db53ab532" \
+&& DOTNET_SDK_DOWNLOAD_SHA="dd7f15a8202ffa2a435b7289865af4483bb0f642ffcf98a1eb10464cb9c51dd1d771efbb6120f129fe9666f62707ba0b7c476cf1fd3536d3a29329f07456de48" \
 && wget -cq ${DOTNET_SDK_DOWNLOAD_URL} -O "${DOTNET_SETUP_DIR}/dotnet.tar.gz" \
 && echo "$DOTNET_SDK_DOWNLOAD_SHA ${DOTNET_SETUP_DIR}/dotnet.tar.gz" | sha512sum -c - \
 && mkdir -p /usr/share/dotnet \
