@@ -3,7 +3,7 @@ LABEL maintainer "v.la@live.cn"
 
 ENV DOTNET_SDK_VERSION=2.1.500 \
     NUGET_XMLDOC_MODE=skip \
-    NODE_VERSION=8.11.1 \
+    NODE_VERSION=8.13.0 \
     NPM_CONFIG_LOGLEVEL=info \
     NODE_PATH="/usr/local/lib/node_modules;/usr/local/lib/node_external_module" \
     DOTNET_SETUP_DIR=/usr/src/dotnet-build
@@ -76,11 +76,12 @@ RUN echo "  Install Front Building Support " \
     B9AE9905FFD7803F25714661B63B535A4C206CA9 \
     56730D5401028683275BD23C23EFEFE93C4CFFFE \
     77984A986EBC2AA786BC0F66B01FBB92821C587A \
+    8FCCA13FEF1D0C2E91008E09770F7A9A5AE15600 \
   ; do \
-    gpg --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys "$key" || \
-    gpg --keyserver hkp://ipv4.pool.sks-keyservers.net --recv-keys "$key" || \
-    gpg --keyserver hkp://pgp.mit.edu:80 --recv-keys "$key" ; \
-  done \
+    gpg --batch --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys "$key" || \
+    gpg --batch --keyserver hkp://ipv4.pool.sks-keyservers.net --recv-keys "$key" || \
+    gpg --batch --keyserver hkp://pgp.mit.edu:80 --recv-keys "$key" ; \
+done \
 
 && wget -cq "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.xz" -P ${DOTNET_SETUP_DIR}/ \
 && wget -cq "https://nodejs.org/dist/v$NODE_VERSION/SHASUMS256.txt.asc" -P ${DOTNET_SETUP_DIR}/ \
