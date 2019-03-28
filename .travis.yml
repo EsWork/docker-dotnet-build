@@ -1,7 +1,6 @@
 sudo: required
 language: bash
 services: docker
-# dist: trusty
 
 branches: 
   only: 
